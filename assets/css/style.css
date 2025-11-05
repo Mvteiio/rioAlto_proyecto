@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: #f9f9f9;
 }
 
@@ -11,11 +14,11 @@ body {
 .main-header {
     display: flex;
     align-items: center; 
-    height: 7vh;         
+    height: 6.5vh;         
     padding: 0 32px;     
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    border-bottom: 1px solid green;
+    border-bottom: 4px solid green;
 }
 
 .main-header__logo img {
@@ -57,66 +60,210 @@ body {
     color: #ffffff;
 }
 
-/* --- BEM: Bloque HERO --- */
-.hero {
-    position: relative; /* Clave para poder posicionar el velo (overlay) */
-    display: flex;
-    align-items: center;     /* Centra el contenido verticalmente */
-    justify-content: center; /* Centra el contenido horizontalmente */
 
-    /* * MEDIDA RELATIVA: 
-     * 60vh = 60% del alto de la ventana del navegador.
-     * Ajusta este valor si lo quieres más alto o más bajo.
-    */
+.hero {
+    position: relative; 
+    display: flex;
+    align-items: center;    
+    justify-content: center; 
     height: 50vh; 
-    
-    /* --- La Imagen de Fondo --- */
-    /* Asegúrate de cambiar la ruta a tu imagen */
-    background-image: url('../images/imagen-constructora.jpg');
-    background-size: cover;      /* Se asegura que la imagen cubra todo el div */
-    background-position: center; /* Se centra la imagen */
+    background-image: url('../images/image_hero.webp');
+    background-size: cover;     
+    background-position: center; 
 }
 
-/* * --- El "Velo" Oscuro (Overlay) ---
- * Esta es la forma moderna de hacer lo que pediste.
- * Es un "div virtual" que se pone encima del .hero
-*/
 .hero::before {
-    content: ""; /* Requerido para que se muestre el pseudo-elemento */
+    content: ""; 
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-
-    /* * ESTA ES LA MAGIA: 
-     * Un fondo negro (rgb(0,0,0)) con 40% de opacidad (0.4).
-     * Esto oscurece la imagen sin afectar el texto.
-    */
     background-color: rgba(0, 0, 0, 0.4); 
-    
-    z-index: 1; /* Capa 1: El velo */
+    z-index: 1;
 }
 
-/* --- BEM: Elemento .hero__content --- */
+
 .hero__content {
-    position: relative; /* Para que z-index funcione */
-    z-index: 2;         /* Capa 2: El texto (se pone encima del velo) */
-    color: #ffffff;     /* Texto blanco */
+    position: relative; 
+    z-index: 2;         
+    color: #ffffff;     
     text-align: center;
-    padding: 0 1rem;    /* Evita que el texto toque los bordes en móviles */
+    padding: 0 1rem;   
 }
 
 /* --- BEM: Elementos de texto --- */
 .hero__subtitle {
     margin: 0;
-    font-size: 1.25rem; /* 'rem' es una unidad relativa */
+    font-size: 1.8rem; /* 'rem' es una unidad relativa */
     font-weight: 400;   /* Letra más delgada */
     margin-bottom: 0.5rem; /* Espacio entre el subtítulo y el título */
 }
 
 .hero__title {
     margin: 0;
-    font-size: 3.5rem; /* 'rem' es una unidad relativa */
+    font-size: 4rem; /* 'rem' es una unidad relativa */
     font-weight: 700;  /* Letra más gruesa (bold) */
+}
+
+/* --- BEM: Bloque invest-section --- */
+.invest-section {
+    padding: 4rem 0; /* Espacio arriba y abajo (relativo) */
+    background-color: #ffffff;
+}
+
+/* * Contenedor para centrar el contenido
+ * y darle un ancho máximo en pantallas grandes.
+*/
+.invest-section__container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem; /* Evita que se pegue a los bordes en móvil */
+
+    /* * LA MAGIA DE 2 COLUMNAS (en desktop)
+     * Usamos Grid para crear 2 columnas de tamaño idéntico (1fr).
+    */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10rem; /* Espacio entre la columna izq. y der. */
+    align-items: center; /* Centra verticalmente las columnas */
+}
+
+/* --- LADO IZQUIERDO: Contenido --- */
+
+.invest-section__title {
+    font-size: 2.25rem; /* 36px */
+    font-weight: 700;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 2.5rem; /* Espacio antes de la grilla de features */
+    text-align: center;
+}
+
+/* --- BEM: Bloque features-grid --- */
+.features-grid {
+    display: grid;
+    /* 2 columnas de tamaño idéntico */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem; /* Espacio entre los 4 items */
+}
+
+.feature-item {
+    text-align: center; /* Centra el ícono y el texto */
+}
+
+/* Placeholder para tu ícono */
+.feature-item__icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 0.5rem auto; /* Centra y da espacio abajo */
+}
+
+.feature-item__icon svg {
+    width: 100%;  /* Se ajusta al 100% del div (que ya medía 60px) */
+    height: 100%;
+    fill: rgb(26, 153, 10); /* ¡Aquí defines el color azul! */
+}
+
+.feature-item__icon img {
+    width: 100%;  /* Le dices a la <img>: "ocupa el 100% del ancho de tu padre" (o sea, 60px) */
+    height: 100%; /* Le dices a la <img>: "ocupa el 100% del alto de tu padre" (o sea, 60px) */
+    object-fit: contain; /* Esto evita que el ícono se estire o deforme si no es un cuadrado perfecto */
+}
+
+.feature-item__text {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* --- LADO DERECHO: Imágenes --- */
+
+.invest-section__images {
+    position: relative; /* Clave para el solapamiento */
+    
+    /* Damos espacio abajo para la imagen que se desborda */
+    padding-bottom: 3rem;
+    min-height: 300px; /* Altura mínima para que no colapse */
+}
+
+/* Placeholder para tus imágenes (puedes cambiarlo por 'img') */
+.invest-section__image {
+    width: 70%; /* Ocupa el 80% del contenedor derecho */
+    aspect-ratio: 4 / 3; /* Proporción (ej. 4:3) */
+    border-radius: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+    /* --- Estilos para el placeholder (puedes borrar esto) --- */
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+    color: #555;
+    background-color: #e0e0e0;
+    overflow: hidden;
+}
+
+.invest-section__image img {
+    width: 100%;  /* Le dices a la <img>: "ocupa el 100% del ancho de tu padre" (o sea, 60px) */
+    height: 100%; /* Le dices a la <img>: "ocupa el 100% del alto de tu padre" (o sea, 60px) */
+    object-fit: cover;
+}
+
+/* Modificador para la imagen de atrás */
+.invest-section__image--back {
+    position: relative; /* Se queda en el flujo normal */
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+/* Modificador para la imagen de adelante */
+.invest-section__image--front {
+    position: absolute; /* Se sale del flujo */
+    z-index: 2;
+    bottom: 0; /* Se alinea abajo */
+    right: 0;  /* Se alinea a la derecha */
+}
+
+
+/* * =========================================
+ * AQUÍ EMPIEZA LO RESPONSIVO
+ * =========================================
+*/
+@media (max-width: 768px) {
+
+    .invest-section {
+        padding: 3rem 0; /* Menos espacio en móvil */
+    }
+    
+    /*
+     * Hacemos que la grilla principal
+     * tenga 1 SOLA columna, apilando el contenido.
+    */
+    .invest-section__container {
+        grid-template-columns: 1fr;
+        gap: 3rem; /* Espacio entre el texto (arriba) y las imgs (abajo) */
+    }
+
+    .invest-section__title {
+        text-align: center; /* Centra el título en móvil */
+        font-size: 1.75rem; /* Título más pequeño */
+        margin-bottom: 2rem;
+    }
+
+    .features-grid {
+        /* * Centramos la grilla de 2x2 en móvil,
+         * dándole un ancho máximo.
+        */
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .invest-section__images {
+        /* * Hacemos las imágenes un poco más pequeñas
+         * en relación a su contenedor.
+        */
+        transform: scale(0.9);
+    }
 }
