@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.main-header {
+    display: flex;
+    align-items: center; 
+    height: 7vh;         
+    padding: 0 32px;     
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid green;
+}
+
+.main-header__logo img {
+    height: 70px;  
+    width: auto;   
+    display: block; 
+}
+.main-header__nav {
+    margin-left: 5%;
+}
+.main-header__link {
+    text-decoration: none;
+    color: #6a5a5a;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.main-header__actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto; 
+}
+.main-header__separator {
+    width: 1px;
+    height: 32px;
+    background-color: #d1d1d1;
+    margin-right: 24px;
+}
+.main-header__button {
+    text-decoration: none;
+    color: #6a5a5a;
+    font-weight: 600;
+    border: 2px solid #008000;
+    padding: 8px 20px;
+    border-radius: 999px;
+    transition: all 0.2s ease;
+}
+.main-header__button:hover {
+    background-color: #008000;
+    color: #ffffff;
+}
+
+/* --- BEM: Bloque HERO --- */
+.hero {
+    position: relative; /* Clave para poder posicionar el velo (overlay) */
+    display: flex;
+    align-items: center;     /* Centra el contenido verticalmente */
+    justify-content: center; /* Centra el contenido horizontalmente */
+
+    /* * MEDIDA RELATIVA: 
+     * 60vh = 60% del alto de la ventana del navegador.
+     * Ajusta este valor si lo quieres más alto o más bajo.
+    */
+    height: 50vh; 
+    
+    /* --- La Imagen de Fondo --- */
+    /* Asegúrate de cambiar la ruta a tu imagen */
+    background-image: url('../images/imagen-constructora.jpg');
+    background-size: cover;      /* Se asegura que la imagen cubra todo el div */
+    background-position: center; /* Se centra la imagen */
+}
+
+/* * --- El "Velo" Oscuro (Overlay) ---
+ * Esta es la forma moderna de hacer lo que pediste.
+ * Es un "div virtual" que se pone encima del .hero
+*/
+.hero::before {
+    content: ""; /* Requerido para que se muestre el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* * ESTA ES LA MAGIA: 
+     * Un fondo negro (rgb(0,0,0)) con 40% de opacidad (0.4).
+     * Esto oscurece la imagen sin afectar el texto.
+    */
+    background-color: rgba(0, 0, 0, 0.4); 
+    
+    z-index: 1; /* Capa 1: El velo */
+}
+
+/* --- BEM: Elemento .hero__content --- */
+.hero__content {
+    position: relative; /* Para que z-index funcione */
+    z-index: 2;         /* Capa 2: El texto (se pone encima del velo) */
+    color: #ffffff;     /* Texto blanco */
+    text-align: center;
+    padding: 0 1rem;    /* Evita que el texto toque los bordes en móviles */
+}
+
+/* --- BEM: Elementos de texto --- */
+.hero__subtitle {
+    margin: 0;
+    font-size: 1.25rem; /* 'rem' es una unidad relativa */
+    font-weight: 400;   /* Letra más delgada */
+    margin-bottom: 0.5rem; /* Espacio entre el subtítulo y el título */
+}
+
+.hero__title {
+    margin: 0;
+    font-size: 3.5rem; /* 'rem' es una unidad relativa */
+    font-weight: 700;  /* Letra más gruesa (bold) */
+}
