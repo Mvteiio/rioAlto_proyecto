@@ -22,6 +22,19 @@ body {
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     border-bottom: 4px solid green;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Súper importante, o se encogerá */
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.658); /* Juega con el 0.7 (opacidad) */
+    -webkit-backdrop-filter: blur(10px); /* Para navegadores Safari */
+    backdrop-filter: blur(8px);
+}
+
+main {
+    /* Ajusta este valor al 'height' EXACTO de tu header */
+    padding-top: 6.5vh; 
 }
 
 .main-header__logo img {
@@ -53,13 +66,13 @@ body {
     text-decoration: none;
     color: #6a5a5a;
     font-weight: 600;
-    border: 2px solid #008000;
+    border: 2px solid #27ae60;;
     padding: 8px 20px;
     border-radius: 999px;
     transition: all 0.2s ease;
 }
 .main-header__button:hover {
-    background-color: #008000;
+    background-color: #27ae60;
     color: #ffffff;
 }
 
@@ -107,6 +120,34 @@ body {
     margin: 0;
     font-size: 4rem; /* 'rem' es una unidad relativa */
     font-weight: 700;  /* Letra más gruesa (bold) */
+    color: rgb(41, 187, 77);
+}
+
+.hero__button {
+    display: inline-block; /* Para que respete el padding */
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    
+    /* El estilo "fantasma" (ghost button) */
+    border: 2px solid #ffffff;
+    background-color: transparent;
+    
+    padding: 0.75rem 2rem; /* Aprox. 12px y 32px */
+    border-radius: 999px; /* Botón tipo píldora */
+    
+    /* Espacio para separarlo del título */
+    margin-top: 2rem; 
+    
+    /* Transición suave */
+    transition: all 0.2s ease;
+}
+
+/* Efecto al pasar el mouse */
+.hero__button:hover {
+    background-color: #ffffff;
+    color: #333; /* Un color oscuro para el texto */
 }
 
 /* --- BEM: Bloque invest-section --- */
@@ -313,7 +354,7 @@ body {
     display: grid;
     /* 2 columnas en desktop */
     grid-template-columns: repeat(2, 1fr);
-    gap: 4rem; /* Espacio entre las tarjetas */
+    gap: 10rem; /* Espacio entre las tarjetas */
     
     /* Centramos la grilla y le damos un ancho máximo */
     max-width: 900px;
@@ -334,13 +375,13 @@ body {
     width: 100%;
     height: auto; 
     display: block; /* Elimina espacio extra debajo de la imagen */
-    aspect-ratio: 16 / 10; /* Proporción para la imagen */
+    aspect-ratio: 10 / 8; /* Proporción para la imagen */
     object-fit: cover;
 }
 
 /* Contenedor para todo el texto de la tarjeta */
 .project-card__content {
-    padding: 1.5rem; /* Espaciado interno */
+    padding: 2rem 1.5rem;
 }
 
 .project-card__title {
