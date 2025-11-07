@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Inmobiliario - Villas de San Mateo</title>
+    <link rel="stylesheet" href="./assets/css/nosotros.css">
+</head>
+<body>
+
+  <header class="main-header">
+        
+        <a href="/" class="main-header__logo">
+            <img src="assets/images/logo-rioAlto.png" alt="Logo Rioalto">
+        </a>
+
+        <nav class="main-header__nav">
+            <a href="" class="main-header__link">Nosotros</a>
+        </nav>
+
+        <div class="main-header__actions">
+            <div class="main-header__separator"></div>
+            <a href="" class="main-header__button">Proyectos</a>
+        </div>
+
+    </header>
+    <main class="project-detail">
+
+        <section class="project-detail__header">
+            <h1 class="project-detail__title">VILLAS de San Mateo</h1>
+            <p class="project-detail__location">Carrera 2 con Calle 29 - Santa Marta.</p>
+            <p class="project-detail__price-tag">
+                Precio desde
+                <span class="project-detail__price-value">$450 Millones</span>
+            </p>
+        </section>
+
+        <section class="project-detail__gallery">
+            <div class="project-detail__main-image-container">
+                <img src="./assets/images/Fachada.jpg"
+                    alt="Vista principal o fachada del proyecto Villas de San Mateo"
+                    class="project-detail__main-image"
+                    width="1733"
+                    height="602"
+                    loading="lazy"
+                >
+            </div>
+            <button class="gallery-button">
+                <span class="gallery-button__icon">🖼️</span> 
+                <span class="gallery-button__text">Galería</span>
+            </button>
+        </section>
+
+        <section class="project-detail__info">
+            <h2 class="project-detail__info-title">Tu nuevo hogar rodeado de felicidad</h2>
+            <h3 class="project-detail__info-project-name">VILLAS de San Mateo</h3>
+            <p class="project-detail__info-text">
+                La combinación de bienestar y felicidad se juntan en VILLAS de San Mateo Frente al Colegio Reina
+                de la Paz, en la calle 200 con carrera 26, te ofrece apartamentos desde **70 m²** hasta **86 m²** de área
+                construida, que incluyen un gran balcón, alcoba principal con vestier y baño, cocina integrada a su
+                zona social. Un lugar donde la vista es un tesoro, rodeado de zonas verdes que le darán un nuevo
+                respiro a tu vida. Además, estarás en una zona residencial tranquila y estratégica, con cercanía a la
+                autopista, colegios, universidades, hospitales y centros comerciales. Más de **15 amenidades** como
+                piscinas, cancha recreativa de pádel, coworking, gimnasio, pet zone, sky lounge entre otros,
+                convierten a Nativa el lugar ideal para vivir. **Aplican Términos y Condiciones**
+            </p>
+        </section>
+
+        <section class="payment-simulator">
+
+            <div class="payment-simulator__typography">
+                <h2 class="payment-simulator__typography-title">Tipologías</h2>
+
+                <div class="dropdown-select">
+                    <select class="dropdown-select__field">
+                        <option value="001-70">001 - 70.00 m²</option>
+                    </select>
+                </div>
+                
+                <div class="new-plan-image">
+                    <img
+                        src="./assets/images/plano.jpg"
+                        alt="Plano de distribución del apartamento seleccionado"
+                        class="new-plan-image__img"
+                        loading="lazy"
+                    >
+                </div>
+                <div class="payment-simulator__unit-details">
+                    <p class="payment-simulator__unit-id">001</p>
+                    <p class="payment-simulator__unit-price">Desde **$392.910.000**</p>
+                    <p class="payment-simulator__unit-features">
+                        Cocina, Patio de Ropas, Sala Comedor, Balcón, Alcoba Principal, Vestier, Baño, Alcoba 1 y Baño Auxiliar
+                    </p>
+                    <div class="payment-simulator__unit-specs">
+                        <span class="payment-simulator__spec-item">Desde **70.00 m²**</span>
+                        <span class="payment-simulator__spec-item">🛌 **2 Habitaciones**</span>
+                        <span class="payment-simulator__spec-item">🛁 **2 Baños**</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="payment-simulator__calculator">
+                <h2 class="payment-simulator__calculator-title">Simula tu plan de pagos</h2>
+
+                <div class="payment-field">
+                    <label class="payment-field__label">Cuota inicial</label>
+                    <div class="payment-field__value">$117.873.000</div>
+                    <div class="payment-field__range-labels">
+                        <span class="payment-field__range-min">$117.873.000</span>
+                        <span class="payment-field__range-max">$392.910.000</span>
+                    </div>
+                    <div class="payment-field__slider-mock"></div>
+                </div>
+
+                <div class="payment-field">
+                    <label class="payment-field__label">Separación</label>
+                    <div class="payment-field__value">$3.929.100</div>
+                    <div class="payment-field__range-labels">
+                        <span class="payment-field__range-min">$3.929.100</span>
+                        <span class="payment-field__range-max">$117.873.000</span>
+                    </div>
+                    <div class="payment-field__slider-mock payment-field__slider-mock--small"></div>
+                </div>
+
+                <div class="payment-field">
+                    <label class="payment-field__label">Cuotas mensuales</label>
+                    <div class="dropdown-select dropdown-select--small">
+                        <select class="dropdown-select__field">
+                            <option value="32">32</option>
+                        </select>
+                    </div>
+                    <div class="payment-field__monthly-value">$3.560.746,88</div>
+                </div>
+
+                <div class="payment-field">
+                    <label class="payment-field__label">Saldo final</label>
+                    <div class="payment-field__label-sub">Mes 33</div>
+                    <div class="payment-field__final-balance">$275.037.000</div>
+                </div>
+
+                <div class="payment-simulator__total">
+                    <span class="payment-simulator__total-label">Precio total desde</span>
+                    <span class="payment-simulator__total-value">$392.910.000</span>
+                </div>
+
+                <button class="payment-simulator__button">
+                    Quiero más información 
+                    <span class="payment-simulator__button-icon">
+                        </span>
+                </button>
+                
+                <p class="payment-simulator__disclaimer">
+                    *Este es un simulador de la cotización, los valores pueden cambiar. Si
+                    quieres más información, un experto se pondrá en contacto contigo para
+                    resolver tus dudas.
+                </p>
+
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>
